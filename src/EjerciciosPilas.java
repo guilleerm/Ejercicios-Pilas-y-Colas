@@ -31,6 +31,29 @@ public class EjerciciosPilas {
         } else System.out.println ("FIN");
     }
 
+    public Pila repetir(Pila pila,int n){
+        if(!pila.vacia()){
+            int elemento=pila.desapilar();
+            repetir(pila,n);
+            while(n>0){
+                pila.apilar(elemento);
+                n--;
+            }
+        }
+        return pila;
+    }
+
+    public void pilaReorganizable(Pila pila, int dato){
+        if(!pila.vacia()){
+            int elemento=pila.desapilar();
+            pilaReorganizable(pila,dato);
+            pila.apilar(elemento);
+            if(elemento==dato)
+                pila.desapilar();
+        }else
+            pila.apilar(dato);
+    }
+
     public int comparacion(Pila pila) {
         int contador = 0;
         if (pila.vacia()) {
@@ -75,5 +98,9 @@ public class EjerciciosPilas {
                 contador++;
             }
         }
+    }
+
+    public void moverElementoFondo (Pila p){
+        Pila aux = new Pila();
     }
 }
